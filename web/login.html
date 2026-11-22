@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Login | E-Aduan Kolej</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="auth-shell">
+
+    <section class="welcome-panel">
+
+        <a class="brand" href="login.html">
+            <img src="Images/E-Aduan Kolej Icon.png" alt="E-Aduan Kolej Icon" class="brand-icon-image">
+            <span class="brand-text">
+                E-ADUAN <strong>KOLEJ</strong>
+                <small>Hostel Maintenance & Repair</small>
+            </span>
+        </a>
+
+        <div class="welcome-content">
+
+            <div class="eyebrow">
+                STUDENT HOSTEL SUPPORT
+            </div>
+
+            <h1>
+                Better hostels.<br>
+                <span>Faster repairs.</span>
+            </h1>
+
+            <p>
+                Report maintenance problems, follow repair
+                progress, and help make your hostel a
+                better place to live.
+            </p>
+
+            
+        <div class="steps-preview">
+
+            <div class="step-preview">
+                <span>01</span>
+                <div>
+                    <strong>Report a Problem</strong>
+                    <small>
+                        Submit a complaint about damaged
+                        hostel facilities.
+                    </small>
+                </div>
+            </div>
+
+            <div class="step-preview">
+                <span>02</span>
+                <div>
+                    <strong>Automatic Assignment</strong>
+                    <small>
+                        Your report is prioritized and routed
+                        to the appropriate maintenance department.
+                    </small>
+                </div>
+            </div>
+
+            <div class="step-preview">
+                <span>03</span>
+                <div>
+                    <strong>Track Repair Progress</strong>
+                    <small>
+                        Follow your ticket from Pending
+                        to In Progress and Resolved.
+                    </small>
+                </div>
+            </div>
+
+        </div>
+
+
+        </div>
+
+        <p class="welcome-footer">
+            One platform for students, technicians
+            and administrators.
+        </p>
+
+    </section>
+
+    <section class="form-panel">
+
+        <div class="form-topline">
+            🔧 Maintenance Helpdesk Portal
+        </div>
+
+        <div class="auth-card">
+
+            <span class="card-kicker">
+                WELCOME BACK
+            </span>
+
+            <h2>Sign in to your account</h2>
+
+            <p class="subtitle">
+                Enter your details to access E-Aduan Kolej.
+            </p>
+
+            <form id="loginForm">
+
+                <div class="field">
+                    <label for="identity">
+                        Email Address / User ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="identity"
+                        name="identity"
+                        placeholder="Enter your email address or ID"
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="password-field">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            data-target="password">
+                            Show
+                        </button>
+
+                    </div>
+                </div>
+
+                <button type="submit" class="primary-button">
+                    Sign In →
+                </button>
+
+                <div
+                    id="loginMessage"
+                    class="form-message"
+                    role="status"
+                    hidden>
+                </div>
+
+            </form>
+
+            <div class="form-divider">
+                <span>New to E-Aduan Kolej?</span>
+            </div>
+
+            <a href="role-selection.html" class="secondary-button">
+                Create Account
+            </a>
+
+        </div>
+
+        <p class="form-footer">
+            © 2026 E-Aduan Kolej · Hostel Maintenance & Repair
+        </p>
+
+    </section>
+
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/login.js"></script>
+
+</body>
+</html>

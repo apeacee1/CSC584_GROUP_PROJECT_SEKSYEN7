@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Technicians | E-Aduan Kolej</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/manage-tickets.css">
+    <link rel="stylesheet" href="css/manage-technicians.css">
+</head>
+
+<body class="dashboard-page manage-technicians-page">
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="dashboard-sidebar">
+
+        <a href="admin-dashboard.html" class="dashboard-brand">
+
+            <img src="Images/E-Aduan Kolej Icon.png"
+                 alt="E-Aduan Kolej Icon"
+                 class="dashboard-brand-image">
+
+            <div>
+                <strong>E-ADUAN KOLEJ</strong>
+                <small>Maintenance Portal</small>
+            </div>
+
+        </a>
+
+        <div class="sidebar-label">ADMINISTRATION</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="admin-dashboard.html" class="sidebar-link">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="manage-tickets.html" class="sidebar-link">
+                <span>▤</span> Manage Tickets
+            </a>
+
+            <a href="manage-technicians.html" class="sidebar-link active">
+                <span>⚒</span> Manage Technicians
+            </a>
+
+            <a href="reports-statistics.html" class="sidebar-link">
+                <span>▥</span> Reports & Statistics
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-help">
+                <strong>Admin Control Panel</strong>
+                <p>
+                    Manage technician accounts and
+                    maintenance department assignments.
+                </p>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <!-- TOP BAR -->
+
+            <header class="dashboard-topbar">
+
+                <div class="topbar-title">
+                    Administrator Portal
+                </div>
+
+                <div class="topbar-actions">
+
+                    <div class="student-profile">
+                        <div class="profile-avatar">A</div>
+
+                        <div class="profile-details">
+                            <strong>Administrator</strong>
+                            <small>System Administrator</small>
+                        </div>
+                    </div>
+
+                    <a href="login.html" class="topbar-logout-button">
+                        Logout
+                    </a>
+
+                </div>
+
+            </header>
+
+
+        <div class="dashboard-content">
+
+            <!-- PAGE HEADER -->
+
+            <section class="manage-tickets-header">
+
+                <div>
+
+                    <p class="manage-tickets-label">
+                        ADMINISTRATION / TECHNICIAN MANAGEMENT
+                    </p>
+
+                    <h1>Manage Technicians</h1>
+
+                    <p>
+                        Manage technician information and
+                        department assignments.
+                    </p>
+
+                </div>
+
+                <a href="admin-dashboard.html" class="manage-back-button">
+                    ← Back to Dashboard
+                </a>
+
+            </section>
+
+
+            <!-- SUMMARY CARDS -->
+
+            <section class="manage-ticket-summary">
+
+                <div class="manage-ticket-card">
+
+                    <div>
+                        <span>Total Technicians</span>
+                        <h2 id="totalTechnicians">0</h2>
+                        <p>Registered technicians</p>
+                    </div>
+
+                    <div class="manage-ticket-icon purple-icon">
+                        ♙
+                    </div>
+
+                </div>
+
+
+                <div class="manage-ticket-card">
+
+                    <div>
+                        <span>Active Accounts</span>
+                        <h2 id="activeTechnicians">0</h2>
+                        <p>Currently active</p>
+                    </div>
+
+                    <div class="manage-ticket-icon green-icon">
+                        ✓
+                    </div>
+
+                </div>
+
+
+                <div class="manage-ticket-card">
+
+                    <div>
+                        <span>Inactive Accounts</span>
+                        <h2 id="inactiveTechnicians">0</h2>
+                        <p>Deactivated accounts</p>
+                    </div>
+
+                    <div class="manage-ticket-icon orange-icon">
+                        !
+                    </div>
+
+                </div>
+
+
+                <div class="manage-ticket-card">
+
+                    <div>
+                        <span>Departments</span>
+                        <h2 id="totalDepartments">0</h2>
+                        <p>Departments represented</p>
+                    </div>
+
+                    <div class="manage-ticket-icon blue-icon">
+                        ▦
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- TECHNICIAN ACCOUNTS PANEL -->
+
+            <section class="manage-tickets-panel">
+
+                <div class="manage-panel-header">
+
+                    <div>
+                        <h2>Technician Accounts</h2>
+
+                        <p>
+                            View, register and manage maintenance technicians.
+                        </p>
+                    </div>
+
+                    <button type="button"
+                            class="mt-primary-button"
+                            id="openAddModal">
+                        + Add Technician
+                    </button>
+
+                </div>
+
+
+                <!-- NOTIFICATION -->
+
+                <div id="pageMessage"
+                     class="mt-message"
+                     role="status"
+                     hidden>
+                </div>
+
+
+                <!-- SEARCH AND FILTERS -->
+
+                <div class="manage-ticket-filters technician-filters">
+
+                    <div>
+
+                        <label for="searchInput">
+                            Search Technician
+                        </label>
+
+                        <input type="search"
+                               id="searchInput"
+                               placeholder="Search name, staff ID or email">
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="departmentFilter">
+                            Department
+                        </label>
+
+                        <select id="departmentFilter">
+
+                            <option value="">All Departments</option>
+
+                            <option value="Electrical Maintenance">
+                                Electrical Maintenance
+                            </option>
+
+                            <option value="Plumbing Maintenance">
+                                Plumbing Maintenance
+                            </option>
+
+                            <option value="Furniture Maintenance">
+                                Furniture Maintenance
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="statusFilter">
+                            Account Status
+                        </label>
+
+                        <select id="statusFilter">
+
+                            <option value="">All Accounts</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TECHNICIAN TABLE -->
+
+                <div class="table-container">
+
+                    <table class="ticket-table mt-table technician-table">
+
+                        <thead>
+                            <tr>
+                                <th>Technician</th>
+                                <th>Department</th>
+                                <th>Email Address</th>
+                                <th>Assigned Tickets</th>
+                                <th>Account Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="technicianTableBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- EMPTY RESULTS -->
+
+                <div id="emptyState"
+                     class="manage-empty mt-empty-state"
+                     hidden>
+
+                    <h3>No Technicians Found</h3>
+
+                    <p>
+                        No technician accounts match your search or filters.
+                    </p>
+
+                </div>
+
+
+                <div class="mt-table-footer">
+
+                    <span id="resultCount">
+                        Showing 0 technicians
+                    </span>
+
+                </div>
+
+            <section class="manage-ticket-guidance technician-departments-panel">
+
+               <h2>Maintenance Departments</h2>
+
+               <div class="mt-department-grid">
+
+                   <div class="mt-department-item">
+                       <div class="mt-department-icon electrical-icon">⚡</div>
+                       <h3>Electrical Maintenance</h3>
+                       <p>Handles electrical faults, lighting, fans and power sockets.</p>
+                   </div>
+
+                   <div class="mt-department-item">
+                       <div class="mt-department-icon plumbing-icon">🔧</div>
+                       <h3>Plumbing Maintenance</h3>
+                       <p>Handles leaking pipes, blocked sinks and water-related problems.</p>
+                   </div>
+
+                   <div class="mt-department-item">
+                       <div class="mt-department-icon furniture-icon">🪑</div>
+                       <h3>Furniture Maintenance</h3>
+                       <p>Handles damaged furniture, doors, wardrobes and chairs.</p>
+                   </div>
+
+               </div>
+
+           </section>
+
+
+            <!-- FOOTER -->
+
+            <footer class="dashboard-footer">
+                © 2026 E-Aduan Kolej |
+                Hostel Maintenance & Repair
+            </footer>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- ADD / EDIT TECHNICIAN MODAL -->
+
+<div class="mt-modal-backdrop"
+     id="technicianModal"
+     aria-hidden="true">
+
+    <section class="mt-modal">
+
+        <div class="mt-modal-header">
+
+            <div>
+                <p class="mt-modal-label">TECHNICIAN INFORMATION</p>
+
+                <h2 id="modalTitle">Add Technician</h2>
+
+                <p>
+                    Enter the technician's information and department.
+                </p>
+            </div>
+
+            <button type="button"
+                    id="closeModal"
+                    class="mt-close-button"
+                    aria-label="Close">
+                &times;
+            </button>
+
+        </div>
+
+
+        <form id="technicianForm">
+
+            <input type="hidden" id="technicianId">
+
+
+            <div class="mt-form-field">
+
+                <label for="staffId">Staff ID</label>
+
+                <input type="text"
+                       id="staffId"
+                       placeholder="Example: STF-004"
+                       required>
+
+            </div>
+
+
+            <div class="mt-form-field">
+
+                <label for="technicianName">Full Name</label>
+
+                <input type="text"
+                       id="technicianName"
+                       placeholder="Enter technician name"
+                       required>
+
+            </div>
+
+
+            <div class="mt-form-field">
+
+                <label for="technicianEmail">Email Address</label>
+
+                <input type="email"
+                       id="technicianEmail"
+                       placeholder="technician@eaduan.com"
+                       required>
+
+            </div>
+
+
+            <div class="mt-form-field">
+
+                <label for="technicianPhone">Phone Number</label>
+
+                <input type="tel"
+                       id="technicianPhone"
+                       placeholder="Enter phone number">
+
+            </div>
+
+
+            <div class="mt-form-field">
+
+                <label for="technicianDepartment">
+                    Maintenance Department
+                </label>
+
+                <select id="technicianDepartment" required>
+
+                    <option value="">Select Department</option>
+
+                    <option value="Electrical Maintenance">
+                        Electrical Maintenance
+                    </option>
+
+                    <option value="Plumbing Maintenance">
+                        Plumbing Maintenance
+                    </option>
+
+                    <option value="Furniture Maintenance">
+                        Furniture Maintenance
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="mt-modal-actions">
+
+                <button type="button"
+                        id="cancelModal"
+                        class="mt-cancel-button">
+                    Cancel
+                </button>
+
+                <button type="submit"
+                        id="saveTechnician"
+                        class="mt-primary-button">
+                    Create Technician
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</div>
+
+
+<script src="js/manage-technicians.js"></script>
+
+</body>
+</html>

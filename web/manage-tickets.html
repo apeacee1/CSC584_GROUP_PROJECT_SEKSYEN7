@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Tickets | E-Aduan Kolej</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/manage-tickets.css">
+</head>
+
+<body class="dashboard-page">
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="dashboard-sidebar">
+
+        <a href="admin-dashboard.html"
+           class="dashboard-brand">
+
+            <img src="Images/E-Aduan Kolej Icon.png"
+                 alt="E-Aduan Kolej Icon"
+                 class="dashboard-brand-image">
+
+            <div>
+                <strong>E-ADUAN KOLEJ</strong>
+                <small>Maintenance Portal</small>
+            </div>
+
+        </a>
+
+        <div class="sidebar-label">ADMINISTRATION</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="admin-dashboard.html"
+               class="sidebar-link">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="manage-tickets.html"
+               class="sidebar-link active">
+                <span>▤</span> Manage Tickets
+            </a>
+
+            <a href="manage-technicians.html"
+               class="sidebar-link">
+                <span>⚒</span> Manage Technicians
+            </a>
+
+            <a href="reports-statistics.html"
+               class="sidebar-link">
+                <span>▥</span> Reports & Statistics
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-help">
+                <strong>Admin Control Panel</strong>
+                <p>
+                    Review student complaints and
+                    coordinate maintenance activities.
+                </p>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <!-- TOP BAR -->
+
+        <header class="dashboard-topbar">
+
+            <div class="topbar-title">
+                Administrator Portal
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="student-profile">
+                    <div class="profile-avatar">A</div>
+
+                    <div class="profile-details">
+                        <strong>Administrator</strong>
+                        <small>System Administrator</small>
+                    </div>
+                </div>
+
+                <a href="login.html" class="topbar-logout-button">
+                    Logout
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <div class="dashboard-content">
+
+            <!-- PAGE HEADER -->
+
+            <section class="manage-tickets-header">
+
+                <div>
+                    <p class="manage-tickets-label">
+                        ADMINISTRATION / TICKET MANAGEMENT
+                    </p>
+
+                    <h1>Manage Repair Tickets</h1>
+
+                    <p>
+                        Review student complaints, assign technicians
+                        and monitor repair progress across all hostel blocks.
+                    </p>
+                </div>
+
+                <a href="admin-dashboard.html"
+                   class="manage-back-button">
+                    ← Back to Dashboard
+                </a>
+
+            </section>
+
+
+            <!-- SUMMARY CARDS -->
+
+            <section class="manage-ticket-summary">
+
+                <div class="manage-ticket-card">
+
+                    <div>
+                        <span>Total Tickets</span>
+                        <h2 id="manageTotal">0</h2>
+                        <p>All submitted complaints</p>
+                    </div>
+
+                    <div class="manage-ticket-icon purple-icon">
+                        ▤
+                    </div>
+
+                </div>
+
+
+                <div class="manage-ticket-card">
+
+                    <div>
+                        <span>Pending Tickets</span>
+                        <h2 id="managePending">0</h2>
+                        <p>Waiting for repair action</p>
+                    </div>
+
+                    <div class="manage-ticket-icon orange-icon">
+                        ◷
+                    </div>
+
+                </div>
+
+
+                <div class="manage-ticket-card">
+
+                    <div>
+                        <span>Unassigned Tickets</span>
+                        <h2 id="manageUnassigned">0</h2>
+                        <p>Need technician assignment</p>
+                    </div>
+
+                    <div class="manage-ticket-icon blue-icon">
+                        ⚒
+                    </div>
+
+                </div>
+
+
+                <div class="manage-ticket-card">
+
+                    <div>
+                        <span>Duplicate Records</span>
+                        <h2 id="manageDuplicates">0</h2>
+                        <p>Marked as duplicate complaints</p>
+                    </div>
+
+                    <div class="manage-ticket-icon red-icon">
+                        !
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ALL TICKETS PANEL -->
+
+            <section class="manage-tickets-panel">
+
+                <div class="manage-panel-header">
+
+                    <div>
+                        <h2>All Maintenance Complaints</h2>
+
+                        <p>
+                            Manage ticket assignments and
+                            monitor the current repair status.
+                        </p>
+                    </div>
+
+                    <span class="manage-result-count"
+                          id="manageResultCount">
+                        Showing 0 tickets
+                    </span>
+
+                </div>
+
+
+                <!-- SEARCH AND FILTERS -->
+
+                <div class="manage-ticket-filters">
+
+                    <div>
+                        <label for="manageSearch">
+                            Search Tickets
+                        </label>
+
+                        <input
+                            type="search"
+                            id="manageSearch"
+                            placeholder="Search ID, student, complaint or location">
+                    </div>
+
+
+                    <div>
+                        <label for="manageStatus">
+                            Repair Status
+                        </label>
+
+                        <select id="manageStatus">
+
+                            <option value="All">All Status</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="manageCategory">
+                            Category
+                        </label>
+
+                        <select id="manageCategory">
+
+                            <option value="All">All Categories</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Furniture">Furniture</option>
+
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="manageBlock">
+                            Hostel Block
+                        </label>
+
+                        <select id="manageBlock">
+
+                            <option value="All">All Blocks</option>
+                            <option value="Block A">Block A</option>
+                            <option value="Block B">Block B</option>
+                            <option value="Block C">Block C</option>
+
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="manageRecord">
+                            Record Type
+                        </label>
+
+                        <select id="manageRecord">
+
+                            <option value="All">All Records</option>
+                            <option value="Active">Active</option>
+                            <option value="Duplicate">Duplicate</option>
+
+                        </select>
+                    </div>
+
+
+                    <button type="button"
+                            id="manageReset"
+                            class="manage-reset-button">
+                        Reset Filters
+                    </button>
+
+                </div>
+
+
+                <!-- TICKET TABLE -->
+
+                <div class="table-container">
+
+                    <table class="ticket-table manage-ticket-table">
+
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Complaint</th>
+                                <th>Hostel Location</th>
+                                <th>Category</th>
+                                <th>Technician</th>
+                                <th>Priority</th>
+                                <th>Repair Status</th>
+                                <th>Record</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="manageTicketTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- EMPTY RESULTS -->
+
+                <div id="manageEmpty"
+                     class="manage-empty"
+                     hidden>
+
+                    <h3>No Tickets Found</h3>
+
+                    <p>
+                        No complaints match your selected
+                        search or filters.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ADMIN INFORMATION -->
+
+            <section class="manage-ticket-guidance">
+
+                <h2>Ticket Management Guidelines</h2>
+
+                <div class="manage-guidance-grid">
+
+                    <div>
+                        <span>01</span>
+                        <h3>Review Complaints</h3>
+                        <p>
+                            Check the complaint details and
+                            verify the reported maintenance issue.
+                        </p>
+                    </div>
+
+                    <div>
+                        <span>02</span>
+                        <h3>Assign Technicians</h3>
+                        <p>
+                            Assign technicians according to
+                            their respective maintenance departments.
+                        </p>
+                    </div>
+
+                    <div>
+                        <span>03</span>
+                        <h3>Monitor Progress</h3>
+                        <p>
+                            Monitor repair progress and ensure
+                            ticket statuses are updated.
+                        </p>
+                    </div>
+
+                    <div>
+                        <span>04</span>
+                        <h3>Review Duplicates</h3>
+                        <p>
+                            Identify repeated complaints and
+                            mark duplicate records when appropriate.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <footer class="dashboard-footer">
+                © 2026 E-Aduan Kolej |
+                Hostel Maintenance & Repair
+            </footer>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- MANAGE TICKET POPUP -->
+
+<dialog id="manageTicketDialog"
+        class="manage-ticket-dialog">
+
+    <div class="manage-dialog-header">
+
+        <div>
+            <small>ADMINISTRATOR / TICKET MANAGEMENT</small>
+            <h2 id="manageDialogTitle">Manage Ticket</h2>
+        </div>
+
+        <button type="button"
+                id="manageCloseDialog"
+                class="manage-dialog-close"
+                aria-label="Close dialog">
+            &times;
+        </button>
+
+    </div>
+
+
+    <form id="manageTicketForm">
+
+        <div class="manage-dialog-body">
+
+            <!-- TICKET INFORMATION -->
+
+            <div class="manage-dialog-top">
+
+                <strong id="manageDetailId"></strong>
+
+                <span id="manageDetailRecord"></span>
+
+            </div>
+
+
+            <div class="manage-detail-grid">
+
+                <div>
+                    <label>Submitted By</label>
+                    <p id="manageDetailStudent"></p>
+                </div>
+
+                <div>
+                    <label>Hostel Location</label>
+                    <p id="manageDetailLocation"></p>
+                </div>
+
+                <div>
+                    <label>Category</label>
+                    <p id="manageDetailCategory"></p>
+                </div>
+
+                <div>
+                    <label>Priority</label>
+                    <p id="manageDetailPriority"></p>
+                </div>
+
+                <div>
+                    <label>Department</label>
+                    <p id="manageDetailDepartment"></p>
+                </div>
+
+                <div>
+                    <label>Submitted On</label>
+                    <p id="manageDetailDate"></p>
+                </div>
+
+                <div>
+                    <label>Resolved On</label>
+                    <p id="manageDetailResolved"></p>
+                </div>
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="manage-detail-description">
+
+                <label>Problem Description</label>
+
+                <p id="manageDetailDescription"></p>
+
+            </div>
+
+
+            <!-- ASSIGN TECHNICIAN -->
+
+            <div class="manage-edit-field">
+
+                <label for="manageTechnician">
+                    Assign Technician
+                </label>
+
+                <select id="manageTechnician">
+                </select>
+
+                <small id="manageDepartmentNote"></small>
+
+            </div>
+
+
+            <!-- UPDATE STATUS -->
+
+            <div class="manage-edit-field">
+
+                <label for="manageNewStatus">
+                    Repair Status
+                </label>
+
+                <select id="manageNewStatus">
+
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <p id="manageMessage"
+               class="manage-message"
+               role="status"
+               hidden></p>
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="manage-dialog-actions">
+
+                <button type="button"
+                        id="manageMarkDuplicate"
+                        class="manage-duplicate-button">
+                    Mark as Duplicate
+                </button>
+
+                <button type="button"
+                        id="manageCancel"
+                        class="manage-cancel-button">
+                    Close
+                </button>
+
+                <button type="submit"
+                        id="manageSave"
+                        class="manage-save-button">
+                    Save Changes
+                </button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</dialog>
+
+
+<script src="js/manage-tickets.js"></script>
+
+</body>
+</html>

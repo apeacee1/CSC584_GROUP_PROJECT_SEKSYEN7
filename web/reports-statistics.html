@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports & Statistics | E-Aduan Kolej</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/manage-tickets.css">
+    <link rel="stylesheet" href="css/reports-statistics.css">
+
+    <script src="js/reports-statistics.js" defer></script>
+</head>
+
+<body class="dashboard-page reports-page">
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="dashboard-sidebar">
+
+        <a href="admin-dashboard.html" class="dashboard-brand">
+
+            <img src="Images/E-Aduan Kolej Icon.png"
+                 alt="E-Aduan Kolej Icon"
+                 class="dashboard-brand-image">
+
+            <div>
+                <strong>E-ADUAN KOLEJ</strong>
+                <small>Maintenance Portal</small>
+            </div>
+
+        </a>
+
+        <div class="sidebar-label">ADMINISTRATION</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="admin-dashboard.html" class="sidebar-link">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="manage-tickets.html" class="sidebar-link">
+                <span>▤</span> Manage Tickets
+            </a>
+
+            <a href="manage-technicians.html" class="sidebar-link">
+                <span>⚒</span> Manage Technicians
+            </a>
+
+            <a href="reports-statistics.html"
+               class="sidebar-link active">
+                <span>▥</span> Reports & Statistics
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-help">
+                <strong>Admin Control Panel</strong>
+
+                <p>
+                    Monitor complaint performance and
+                    maintenance activities.
+                </p>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <!-- TOP BAR -->
+
+        <header class="dashboard-topbar">
+
+            <div class="topbar-title">
+                Administrator Portal
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="student-profile">
+                    <div class="profile-avatar">A</div>
+
+                    <div class="profile-details">
+                        <strong>Administrator</strong>
+                        <small>System Administrator</small>
+                    </div>
+                </div>
+
+                <a href="login.html" class="topbar-logout-button">
+                    Logout
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <div class="dashboard-content">
+
+            <!-- PAGE HEADER -->
+
+            <section class="manage-tickets-header">
+
+                <div>
+
+                    <p class="manage-tickets-label">
+                        ADMINISTRATION / REPORTS & STATISTICS
+                    </p>
+
+                    <h1>Reports & Statistics</h1>
+
+                    <p>
+                        Monitor complaint performance and
+                        maintenance activities.
+                    </p>
+
+                </div>
+
+                <a href="admin-dashboard.html"
+                   class="manage-back-button">
+                    ← Back to Dashboard
+                </a>
+
+            </section>
+
+
+            <!-- REPORT FILTERS -->
+
+            <section class="manage-tickets-panel filter-panel">
+
+                <div class="manage-panel-header section-heading">
+
+                    <div>
+                        <h2>Report Filters</h2>
+
+                        <p>
+                            Filter complaint records to view specific information.
+                        </p>
+                    </div>
+
+                    <button type="button"
+                            id="resetFilters"
+                            class="manage-reset-button reset-button">
+                        Reset Filters
+                    </button>
+
+                </div>
+
+
+                <div class="manage-ticket-filters report-filter-grid">
+
+                    <div class="filter-group report-filter-group">
+
+                        <label for="startDate">Start Date</label>
+
+                        <input type="date" id="startDate">
+
+                    </div>
+
+
+                    <div class="filter-group report-filter-group">
+
+                        <label for="endDate">End Date</label>
+
+                        <input type="date" id="endDate">
+
+                    </div>
+
+
+                    <div class="filter-group report-filter-group">
+
+                        <label for="categoryFilter">Category</label>
+
+                        <select id="categoryFilter">
+
+                            <option value="all">All Categories</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Furniture">Furniture</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group report-filter-group">
+
+                        <label for="statusFilter">Status</label>
+
+                        <select id="statusFilter">
+
+                            <option value="all">All Statuses</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="report-filter-actions">
+
+                    <button type="button"
+                            id="applyFilters"
+                            class="report-apply-button apply-button">
+                        Apply Filters
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- SUMMARY CARDS -->
+
+            <section class="manage-ticket-summary statistics-grid">
+
+                <div class="manage-ticket-card stat-card">
+
+                    <div>
+                        <span>Total Complaints</span>
+
+                        <h2 id="totalComplaints">0</h2>
+
+                        <p>All complaint records</p>
+                    </div>
+
+                    <div class="manage-ticket-icon purple-icon">
+                        ▤
+                    </div>
+
+                </div>
+
+
+                <div class="manage-ticket-card stat-card">
+
+                    <div>
+                        <span>Pending</span>
+
+                        <h2 id="pendingComplaints">0</h2>
+
+                        <p>Awaiting action</p>
+                    </div>
+
+                    <div class="manage-ticket-icon orange-icon">
+                        ◷
+                    </div>
+
+                </div>
+
+
+                <div class="manage-ticket-card stat-card">
+
+                    <div>
+                        <span>In Progress</span>
+
+                        <h2 id="progressComplaints">0</h2>
+
+                        <p>Currently being handled</p>
+                    </div>
+
+                    <div class="manage-ticket-icon blue-icon">
+                        ⚙
+                    </div>
+
+                </div>
+
+
+                <div class="manage-ticket-card stat-card">
+
+                    <div>
+                        <span>Resolved</span>
+
+                        <h2 id="resolvedComplaints">0</h2>
+
+                        <p>Completed complaints</p>
+                    </div>
+
+                    <div class="manage-ticket-icon green-icon">
+                        ✓
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ANALYTICS SECTION -->
+
+            <section class="report-analytics-grid analytics-grid">
+
+                <!-- MONTHLY COMPLAINTS -->
+
+                <div class="manage-tickets-panel content-panel monthly-panel">
+
+                    <div class="manage-panel-header panel-heading">
+
+                        <div>
+                            <h2>Monthly Complaints</h2>
+
+                            <p>
+                                Number of complaints submitted each month.
+                            </p>
+                        </div>
+
+                        <span class="chart-label">2026</span>
+
+                    </div>
+
+                    <div class="monthly-chart" id="monthlyChart">
+                        <!-- Generated by JavaScript -->
+                    </div>
+
+                </div>
+
+
+                <!-- CATEGORY STATISTICS -->
+
+                <div class="manage-tickets-panel content-panel category-panel">
+
+                    <div class="manage-panel-header panel-heading">
+
+                        <div>
+                            <h2>Complaints by Category</h2>
+
+                            <p>
+                                Distribution of complaint types.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div id="categoryStats" class="category-list">
+                        <!-- Generated by JavaScript -->
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- DEPARTMENT STATISTICS -->
+
+            <section class="manage-tickets-panel content-panel department-panel">
+
+                <div class="manage-panel-header panel-heading">
+
+                    <div>
+                        <h2>Department Performance</h2>
+
+                        <p>
+                            Complaint records and resolution performance
+                            by department.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div id="departmentStats" class="department-list">
+                    <!-- Generated by JavaScript -->
+                </div>
+
+            </section>
+
+
+            <!-- COMPLAINT RECORDS -->
+
+            <section class="manage-tickets-panel content-panel records-panel">
+
+                <div class="manage-panel-header records-heading">
+
+                    <div>
+                        <h2>Complaint Records</h2>
+
+                        <p>
+                            Detailed records based on the selected filters.
+                        </p>
+                    </div>
+
+                    <button type="button"
+                            id="exportReport"
+                            class="report-export-button export-button">
+                        ↓ Export Report
+                    </button>
+
+                </div>
+
+
+                <div class="table-information">
+
+                    Showing
+                    <strong id="recordCount">0</strong>
+                    records
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table class="ticket-table report-table">
+
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th>Department</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="reportTableBody">
+                            <!-- Generated by JavaScript -->
+                        </tbody>
+
+                    </table>
+
+
+                    <div id="emptyState" class="empty-state">
+                        No complaint records found.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+
+            <footer class="dashboard-footer">
+                © 2026 E-Aduan Kolej |
+                Hostel Maintenance & Repair
+            </footer>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

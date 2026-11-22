@@ -1,0 +1,698 @@
+/* Login, Register Page*/
+.brand-icon-image {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: white;
+    padding: 5px;
+}
+
+html {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #241f32;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f5f2fa;
+}
+
+a {
+    color: inherit;
+}
+
+button, input {
+    font: inherit;
+}
+
+/* MAIN LAYOUT */
+
+.auth-shell {
+    display: grid;
+    grid-template-columns: 49% 51%;
+    min-height: 100vh;
+}
+
+/* LEFT PANEL */
+
+.welcome-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 45px 55px 30px;
+
+    background: linear-gradient(
+        143deg,
+        #241047 0%,
+        #4e278b 56%,
+        #7846ce 100%
+    );
+
+    color: white;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    text-decoration: none;
+    gap: 13px;
+}
+
+.brand-icon {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    background: white;
+    color: #5a2d9b;
+    border-radius: 13px;
+}
+
+.brand-text {
+    font-size: 17px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.brand-text strong {
+    color: #dac9ff;
+}
+
+.brand-text small {
+    display: block;
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: normal;
+    letter-spacing: 0.7px;
+    opacity: 0.76;
+}
+
+.welcome-content {
+    max-width: 545px;
+    margin: 40px 0;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 9px 13px;
+    border: 1px solid rgba(255,255,255,0.17);
+    border-radius: 30px;
+    background: rgba(255,255,255,0.1);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.welcome-content h1 {
+    font-size: clamp(38px, 4.3vw, 61px);
+    line-height: 1.1;
+    margin: 21px 0 17px;
+    letter-spacing: -2px;
+}
+
+.welcome-content h1 span {
+    color: #d8c2ff;
+}
+
+.welcome-content > p {
+    color: #e3d9f5;
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 31px;
+}
+
+.welcome-footer {
+    opacity: 0.7;
+    font-size: 11px;
+}
+
+/* TICKET PREVIEW */
+
+.ticket-preview {
+    max-width: 465px;
+    border-radius: 17px;
+    padding: 20px 23px;
+    background: white;
+    color: #241f32;
+    box-shadow: 0 23px 55px rgba(13,3,45,0.26);
+}
+
+.ticket-preview-top,
+.ticket-preview-body,
+.ticket-preview-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ticket-preview-top {
+    font-size: 11px;
+    color: #867a96;
+}
+
+.status-chip {
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 30px;
+    color: #965c18;
+    background: #fff4df;
+    padding: 7px 10px;
+}
+
+.ticket-preview-body {
+    justify-content: flex-start;
+    gap: 13px;
+    margin: 21px 0;
+}
+
+.ticket-preview-icon {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 13px;
+    background: #f1eafa;
+    font-size: 25px;
+}
+
+.ticket-preview-body strong {
+    font-size: 13px;
+}
+
+.ticket-preview-body p {
+    font-size: 11px;
+    color: #8b8196;
+    margin-top: 7px;
+}
+
+.progress-track {
+    background: #eae6f1;
+    height: 7px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-track span {
+    display: block;
+    height: 100%;
+    width: 55%;
+    background: linear-gradient(
+        90deg,
+        #6434b2,
+        #a37fe5
+    );
+    border-radius: 20px;
+}
+
+.ticket-preview-foot {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #92869d;
+}
+
+/* RIGHT PANEL */
+
+.form-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 34px 60px;
+    background: #fcfbfe;
+}
+
+.form-topline {
+    position: absolute;
+    top: 45px;
+    right: 47px;
+    color: #958ca0;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.auth-card {
+    width: min(100%, 410px);
+    margin: 0 auto;
+}
+
+.card-kicker {
+    display: block;
+    color: #7a4cc8;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+}
+
+.auth-card h2 {
+    margin: 11px 0;
+    font-size: 34px;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #766e83;
+    margin-bottom: 31px;
+}
+
+/* FORM FIELDS */
+
+.field {
+    margin-bottom: 19px;
+}
+
+.field label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 9px;
+    color: #3d3648;
+}
+
+.field input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #dfd9e8;
+    border-radius: 10px;
+    padding: 0 14px;
+    background: white;
+    outline: none;
+    font-size: 13px;
+    color: #292032;
+}
+
+.field input::placeholder {
+    color: #aea6b8;
+}
+
+.field input:focus {
+    border-color: #915cd9;
+    box-shadow: 0 0 0 4px rgba(120,74,196,0.12);
+}
+
+/* PASSWORD */
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 62px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 7px;
+    color: #7154a0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* BUTTONS */
+
+.primary-button,
+.secondary-button {
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.primary-button {
+    margin-top: 27px;
+    background: #6939bc;
+    border: 1px solid #6939bc;
+    color: white;
+    box-shadow: 0 10px 23px rgba(96,48,176,0.2);
+}
+
+.primary-button:hover {
+    background: #582ca5;
+}
+
+.secondary-button {
+    border: 1px solid #d9cfeb;
+    color: #683cb0;
+    background: white;
+}
+
+.secondary-button:hover {
+    background: #f8f3ff;
+}
+
+/* DIVIDER */
+
+.form-divider {
+    text-align: center;
+    margin: 27px 0 23px;
+    color: #978da2;
+    font-size: 11px;
+}
+
+/* EXTRA TEXT */
+
+.hint {
+    text-align: center;
+    color: #9b93a2;
+    line-height: 1.6;
+    font-size: 11px;
+    margin-top: 18px;
+}
+
+.form-footer {
+    position: absolute;
+    bottom: 20px;
+    color: #a49ba9;
+    font-size: 10px;
+    text-align: center;
+}
+
+.form-message {
+    font-size: 12px;
+    border-radius: 9px;
+    margin-top: 14px;
+    padding: 12px;
+    line-height: 1.5;
+}
+
+.form-message.info {
+    color: #543483;
+    background: #f0eafa;
+    border: 1px solid #e4d7f6;
+}
+
+.form-message.error {
+    color: #912f44;
+    background: #fff0f3;
+    border: 1px solid #ffd3dc;
+}
+
+/* REGISTRATION PAGE */
+
+.registration-panel {
+    padding-top: 75px;
+    padding-bottom: 60px;
+}
+
+.register-card {
+    width: min(100%, 550px);
+}
+
+.register-card h2 {
+    font-size: 32px;
+}
+
+.register-card .subtitle {
+    margin-bottom: 21px;
+}
+
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    margin-bottom: 26px;
+    color: #7955ad;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.field-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.register-card .field {
+    margin-bottom: 14px;
+}
+
+.register-card .primary-button {
+    margin-top: 22px;
+}
+
+.register-login {
+    margin-top: 20px;
+    color: #8a8293;
+    text-align: center;
+    font-size: 12px;
+}
+
+.register-login a {
+    color: #6736bb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.registration-welcome {
+    max-width: 535px;
+}
+
+/* REGISTRATION STEPS */
+
+.steps-preview {
+    display: grid;
+    gap: 12px;
+    margin-top: 33px;
+}
+
+.step-preview {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 17px;
+    max-width: 430px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.095);
+    border-radius: 12px;
+}
+
+.step-preview > span {
+    font-weight: bold;
+    color: #e3ccff;
+    font-size: 17px;
+}
+
+.step-preview strong,
+.step-preview small {
+    display: block;
+}
+
+.step-preview strong {
+    font-size: 13px;
+}
+
+.step-preview small {
+    font-size: 11px;
+    margin-top: 5px;
+    color: #d8c8ee;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 950px) {
+
+    .auth-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-panel {
+        min-height: 335px;
+        padding: 26px 32px;
+    }
+
+    .welcome-content {
+        margin: 24px 0;
+    }
+
+    .welcome-content h1 {
+        font-size: 39px;
+    }
+
+    .ticket-preview,
+    .steps-preview,
+    .welcome-footer {
+        display: none;
+    }
+
+    .form-panel {
+        min-height: 580px;
+    }
+
+    .registration-panel {
+        min-height: 680px;
+    }
+}
+
+@media (max-width: 540px) {
+
+    .welcome-panel {
+        min-height: 270px;
+        padding: 25px 22px;
+    }
+
+    .brand-text {
+        font-size: 14px;
+    }
+
+    .welcome-content h1 {
+        font-size: 34px;
+    }
+
+    .form-panel {
+        padding: 68px 22px 56px;
+    }
+
+    .form-topline {
+        top: 18px;
+        right: 20px;
+        font-size: 9px;
+    }
+
+    .field-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/* ROLE SELECTION PAGE */
+
+.role-card {
+    width: min(100%, 550px);
+}
+
+.role-options {
+    display: grid;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.role-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 17px;
+    border: 1px solid #dfd7eb;
+    border-radius: 12px;
+    background: white;
+    text-decoration: none;
+    color: #292032;
+    transition: 0.2s ease;
+}
+
+.role-option:hover {
+    border-color: #8955cf;
+    background: #faf7ff;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(96,48,176,0.09);
+}
+
+.role-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #f1e9ff;
+    font-size: 23px;
+}
+
+.role-details {
+    flex: 1;
+}
+
+.role-details strong {
+    display: block;
+    font-size: 14px;
+    color: #342449;
+}
+
+.role-details small {
+    display: block;
+    margin-top: 6px;
+    color: #847a91;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.role-arrow {
+    color: #7544bc;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.role-card .register-login {
+    margin-top: 25px;
+}
+
+/* SELECT INPUT */
+
+.field select {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #dfd9e8;
+    border-radius: 10px;
+    padding: 0 12px;
+    background: white;
+    outline: none;
+    font-size: 13px;
+    color: #292032;
+}
+
+.field select:focus {
+    border-color: #915cd9;
+    box-shadow: 0 0 0 4px rgba(120,74,196,0.12);
+}
+
+.field select:invalid {
+    color: #aea6b8;
+}
+
+/* ROLE SELECTION RESPONSIVE */
+
+@media (max-width: 540px) {
+
+    .role-option {
+        padding: 13px;
+        gap: 11px;
+    }
+
+    .role-icon {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+    }
+
+    .role-details small {
+        font-size: 10px;
+    }
+
+}

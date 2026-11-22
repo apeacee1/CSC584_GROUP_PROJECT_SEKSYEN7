@@ -1,0 +1,515 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Create Repair Ticket | E-Aduan Kolej</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/create-ticket.css">
+</head>
+
+<body class="dashboard-page">
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="dashboard-sidebar">
+
+        <a href="student-dashboard.html" class="dashboard-brand">
+
+            <img src="Images/E-Aduan Kolej Icon.png"
+                 alt="E-Aduan Kolej Icon"
+                 class="dashboard-brand-image">
+
+            <div>
+                <strong>E-ADUAN KOLEJ</strong>
+                <small>Maintenance Portal</small>
+            </div>
+
+        </a>
+
+        <div class="sidebar-label">
+            MAIN MENU
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="student-dashboard.html"
+               class="sidebar-link">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="create-ticket.html"
+               class="sidebar-link active">
+                <span>✎</span> Submit Complaint
+            </a>
+
+            <a href="my-tickets.html"
+               class="sidebar-link">
+                <span>▤</span> My Tickets
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-help">
+                <strong>Need a repair?</strong>
+                <p>
+                    Report damaged hostel facilities
+                    through E-Aduan Kolej.
+                </p>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <!-- TOP BAR -->
+        <header class="dashboard-topbar">
+
+            <div class="topbar-title">
+                Student Portal
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="student-profile">
+                    <div class="profile-avatar">S</div>
+
+                    <div class="profile-details">
+                        <strong>Student</strong>
+                        <small>Student Account</small>
+                    </div>
+                </div>
+
+                <a href="login.html" class="topbar-logout-button">
+                    Logout
+                </a>
+
+            </div>
+
+        </header>
+        
+
+
+        <div class="dashboard-content">
+
+            <!-- PAGE HEADER -->
+
+            <section class="complaint-header">
+
+                <div>
+                    <a href="student-dashboard.html"
+                       class="complaint-back">
+                        ← Back to Dashboard
+                    </a>
+
+                    <h1>Submit Maintenance Complaint</h1>
+
+                    <p>
+                        Fill in the information below to report
+                        damaged hostel facilities.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <div class="complaint-layout">
+
+                <!-- COMPLAINT FORM -->
+
+                <section class="complaint-card">
+
+                    <div class="complaint-card-heading">
+                        <h2>Repair Ticket Information</h2>
+
+                        <p>
+                            Please provide accurate details
+                            about the maintenance issue.
+                        </p>
+                    </div>
+
+
+                    <form id="createTicketForm">
+
+                        <!-- COMPLAINT TITLE -->
+
+                        <div class="complaint-field">
+
+                            <label for="ticketTitle">
+                                Complaint Title
+                                <span class="required-mark">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="ticketTitle"
+                                name="title"
+                                placeholder="e.g. Broken Ceiling Fan"
+                                maxlength="100"
+                                required>
+
+                        </div>
+
+
+                        <!-- HOSTEL LOCATION -->
+
+                        <div class="complaint-row">
+
+                            <div class="complaint-field">
+
+                                <label for="hostelBlock">
+                                    Hostel Block
+                                    <span class="required-mark">*</span>
+                                </label>
+
+                                <select
+                                    id="hostelBlock"
+                                    name="block"
+                                    required>
+
+                                    <option value="">
+                                        Select Hostel Block
+                                    </option>
+
+                                    <option value="Block A">
+                                        Block A
+                                    </option>
+
+                                    <option value="Block B">
+                                        Block B
+                                    </option>
+
+                                    <option value="Block C">
+                                        Block C
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="complaint-field">
+
+                                <label for="roomNumber">
+                                    Room Number
+                                    <span class="required-mark">*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="roomNumber"
+                                    name="room"
+                                    placeholder="e.g. A-203"
+                                    maxlength="20"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DAMAGE CATEGORY -->
+
+                        <div class="complaint-field">
+
+                            <label for="damageCategory">
+                                Damage Category
+                                <span class="required-mark">*</span>
+                            </label>
+
+                            <select
+                                id="damageCategory"
+                                name="category"
+                                required>
+
+                                <option value="">
+                                    Select Damage Category
+                                </option>
+
+                                <option value="Electrical">
+                                    Electrical
+                                </option>
+
+                                <option value="Plumbing">
+                                    Plumbing
+                                </option>
+
+                                <option value="Furniture">
+                                    Furniture
+                                </option>
+
+                            </select>
+
+                            <small>
+                                The system automatically assigns
+                                priority and maintenance department
+                                based on the selected category.
+                            </small>
+
+                        </div>
+
+
+                        <!-- AUTOMATIC ROUTING -->
+
+                        <div class="routing-box">
+
+                            <h3>Automatic Ticket Routing</h3>
+
+                            <p>
+                                These fields are automatically
+                                determined by the system.
+                            </p>
+
+                            <div class="complaint-row">
+
+                                <div class="complaint-field">
+
+                                    <label for="ticketPriority">
+                                        Priority Level
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="ticketPriority"
+                                        placeholder="Auto-assigned"
+                                        readonly>
+
+                                </div>
+
+
+                                <div class="complaint-field">
+
+                                    <label for="ticketDepartment">
+                                        Maintenance Department
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="ticketDepartment"
+                                        placeholder="Auto-assigned"
+                                        readonly>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="complaint-field">
+
+                            <label for="ticketDescription">
+                                Problem Description
+                                <span class="required-mark">*</span>
+                            </label>
+
+                            <textarea
+                                id="ticketDescription"
+                                name="description"
+                                rows="5"
+                                minlength="10"
+                                maxlength="1000"
+                                placeholder="Describe the damage, location, and any important details..."
+                                required></textarea>
+
+                            <small>
+                                Minimum 10 characters.
+                                <span id="descriptionCount">0</span>/1000
+                            </small>
+
+                        </div>
+
+
+                        <!-- PHOTO UPLOAD -->
+
+                        <div class="complaint-field">
+
+                            <label for="ticketPhoto">
+                                Upload Damage Photo (Optional)
+                            </label>
+
+                            <div class="upload-box">
+
+                                <div class="upload-symbol">▧</div>
+
+                                <p>
+                                    Attach a photo of the damaged facility
+                                </p>
+
+                                <input
+                                    type="file"
+                                    id="ticketPhoto"
+                                    name="photo"
+                                    accept=".jpg,.jpeg,.png">
+
+                                <small>
+                                    JPG or PNG, maximum 5 MB
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FORM BUTTONS -->
+
+                        <div class="complaint-actions">
+
+                            <a href="student-dashboard.html"
+                               class="complaint-cancel">
+                                Cancel
+                            </a>
+
+                            <button
+                                type="submit"
+                                class="complaint-submit">
+                                Submit Repair Ticket
+                            </button>
+
+                        </div>
+
+
+                        <!-- FORM MESSAGE -->
+
+                        <div
+                            id="ticketMessage"
+                            class="complaint-message"
+                            role="status"
+                            aria-live="polite"
+                            hidden>
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+                <!-- RIGHT INFORMATION PANEL -->
+
+                <aside class="complaint-information">
+
+                    <div class="complaint-info-card">
+
+                        <div class="info-icon">🔧</div>
+
+                        <h3>How Ticket Assignment Works</h3>
+
+                        <p>
+                            Your complaint is automatically
+                            categorized and routed to the
+                            relevant maintenance department.
+                        </p>
+
+                        <div class="priority-guide">
+
+                            <div class="priority-guide-row">
+                                <span>Electrical</span>
+                                <span class="priority-high">High</span>
+                            </div>
+
+                            <div class="priority-guide-row">
+                                <span>Plumbing</span>
+                                <span class="priority-medium">Medium</span>
+                            </div>
+
+                            <div class="priority-guide-row">
+                                <span>Furniture</span>
+                                <span class="priority-low">Low</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="complaint-info-card">
+
+                        <h3>What Happens Next?</h3>
+
+                        <div class="next-step">
+
+                            <span>1</span>
+
+                            <p>
+                                Your ticket is submitted with
+                                <strong>Pending</strong> status.
+                            </p>
+
+                        </div>
+
+                        <div class="next-step">
+
+                            <span>2</span>
+
+                            <p>
+                                The maintenance department
+                                receives the ticket and
+                                assigns a technician.
+                            </p>
+
+                        </div>
+
+                        <div class="next-step">
+
+                            <span>3</span>
+
+                            <p>
+                                The technician updates the
+                                status to
+                                <strong>In Progress</strong>.
+                            </p>
+
+                        </div>
+
+                        <div class="next-step">
+
+                            <span>4</span>
+
+                            <p>
+                                The ticket becomes
+                                <strong>Resolved</strong>
+                                when the repair is completed.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <footer class="dashboard-footer">
+                © 2026 E-Aduan Kolej |
+                Hostel Maintenance & Repair
+            </footer>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/create-ticket.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | E-Aduan Kolej</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body class="dashboard-page">
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="dashboard-sidebar">
+
+        <a href="student-dashboard.html" class="dashboard-brand">
+
+            <img src="Images/E-Aduan Kolej Icon.png"
+                 alt="E-Aduan Kolej Icon"
+                 class="dashboard-brand-image">
+
+            <div>
+                <strong>E-ADUAN KOLEJ</strong>
+                <small>Maintenance Portal</small>
+            </div>
+
+        </a>
+
+        <div class="sidebar-label">
+            MAIN MENU
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="student-dashboard.html"
+               class="sidebar-link active">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="create-ticket.html"
+               class="sidebar-link">
+                <span>✎</span> Submit Complaint
+            </a>
+
+            <a href="my-tickets.html"
+               class="sidebar-link">
+                <span>▤</span> My Tickets
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-help">
+                <strong>Need a repair?</strong>
+                <p>
+                    Report damaged hostel facilities
+                    through E-Aduan Kolej.
+                </p>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <!-- TOP BAR -->
+        <header class="dashboard-topbar">
+
+            <div class="topbar-title">
+                Student Portal
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="student-profile">
+                    <div class="profile-avatar">A</div>
+
+                    <div class="profile-details">
+                        <strong>Student</strong>
+                        <small>Student Account</small>
+                    </div>
+                </div>
+
+                <a href="login.html" class="topbar-logout-button">
+                    Logout
+                </a>
+
+            </div>
+
+        </header>
+
+        <div class="dashboard-content">
+
+            <!-- WELCOME SECTION -->
+
+            <section class="dashboard-welcome">
+
+                <div>
+                    <p class="welcome-label">
+                        STUDENT DASHBOARD
+                    </p>
+
+                    <h1>Welcome back, Student!</h1>
+
+                    <p>
+                        Manage your hostel maintenance
+                        complaints and track repair progress
+                        in one place.
+                    </p>
+                </div>
+
+                <a href="create-ticket.html"
+                   class="create-ticket-button">
+                    + Create New Ticket
+                </a>
+
+            </section>
+
+
+            <!-- SUMMARY CARDS -->
+
+            <section class="dashboard-statistics">
+
+                <div class="stat-card">
+
+                    <div class="stat-heading">
+                        <span>Total Tickets</span>
+                        <span class="stat-icon purple-icon">▤</span>
+                    </div>
+
+                    <h2>6</h2>
+
+                    <p>All submitted complaints</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-heading">
+                        <span>Pending</span>
+                        <span class="stat-icon orange-icon">◷</span>
+                    </div>
+
+                    <h2>2</h2>
+
+                    <p>Waiting for repair action</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-heading">
+                        <span>In Progress</span>
+                        <span class="stat-icon blue-icon">⚒</span>
+                    </div>
+
+                    <h2>1</h2>
+
+                    <p>Currently being repaired</p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-heading">
+                        <span>Resolved</span>
+                        <span class="stat-icon green-icon">✓</span>
+                    </div>
+
+                    <h2>3</h2>
+
+                    <p>Successfully completed</p>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECENT TICKETS -->
+
+            <section class="dashboard-section" id="recent-tickets">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Recent Repair Tickets</h2>
+                        <p>
+                            View the latest maintenance
+                            complaints you have submitted.
+                        </p>
+                    </div>
+
+                    <a href="my-tickets.html" class="view-all-link">
+                        View All Tickets →
+                    </a>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table class="ticket-table">
+
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Complaint</th>
+                                <th>Category</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Submitted</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td class="ticket-id">#EK-1006</td>
+                                <td>Damaged Electrical Socket</td>
+                                <td>Electrical</td>
+                                <td>
+                                    <span class="priority-high">
+                                        High
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-pending">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td>04 Nov 2026</td>
+                            </tr>
+
+                            <tr>
+                                <td class="ticket-id">#EK-1005</td>
+                                <td>Leaking Bathroom Pipe</td>
+                                <td>Plumbing</td>
+                                <td>
+                                    <span class="priority-medium">
+                                        Medium
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-progress">
+                                        In Progress
+                                    </span>
+                                </td>
+                                <td>02 Nov 2026</td>
+                            </tr>
+
+                            <tr>
+                                <td class="ticket-id">#EK-1004</td>
+                                <td>Broken Study Chair</td>
+                                <td>Furniture</td>
+                                <td>
+                                    <span class="priority-low">
+                                        Low
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-pending">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td>30 Oct 2026</td>
+                            </tr>
+
+                            <tr>
+                                <td class="ticket-id">#EK-1003</td>
+                                <td>Faulty Ceiling Light</td>
+                                <td>Electrical</td>
+                                <td>
+                                    <span class="priority-high">
+                                        High
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-resolved">
+                                        Resolved
+                                    </span>
+                                </td>
+                                <td>27 Oct 2026</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- REPAIR PROCESS -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>How Repair Requests Work</h2>
+
+                        <p>
+                            Understand the process after
+                            submitting your complaint.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="repair-steps">
+
+                    <div class="repair-step">
+
+                        <span class="repair-step-number">1</span>
+
+                        <div>
+                            <h3>Submit Complaint</h3>
+                            <p>
+                                Report damaged facilities
+                                by creating a repair ticket.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="repair-step">
+
+                        <span class="repair-step-number">2</span>
+
+                        <div>
+                            <h3>Automatic Assignment</h3>
+                            <p>
+                                The system assigns priority
+                                and routes the ticket to
+                                the appropriate department.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="repair-step">
+
+                        <span class="repair-step-number">3</span>
+
+                        <div>
+                            <h3>Repair & Resolution</h3>
+                            <p>
+                                Technicians update the repair
+                                status until the complaint
+                                is resolved.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+
+            <footer class="dashboard-footer">
+                © 2026 E-Aduan Kolej | Hostel Maintenance & Repair
+            </footer>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

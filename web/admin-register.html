@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Registration | E-Aduan Kolej</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="auth-shell">
+
+    <section class="welcome-panel">
+
+        <a class="brand" href="login.html">
+            <img src="Images/E-Aduan Kolej Icon.png"
+                 alt="E-Aduan Kolej Icon"
+                 class="brand-icon-image">
+
+            <span class="brand-text">
+                E-ADUAN <strong>KOLEJ</strong>
+                <small>Hostel Maintenance & Repair</small>
+            </span>
+        </a>
+
+        <div class="welcome-content registration-welcome">
+
+            <div class="eyebrow">ADMINISTRATOR REGISTRATION</div>
+
+            <h1>
+                Manage the system.<br>
+                <span>Improve hostel services.</span>
+            </h1>
+
+            <p>
+                Create an administrator account to manage
+                users, maintenance tickets and system operations.
+            </p>
+
+        </div>
+
+        <p class="welcome-footer">
+            Managing hostel maintenance efficiently.
+        </p>
+
+    </section>
+
+    <section class="form-panel registration-panel">
+
+        <div class="form-topline">
+            Maintenance Helpdesk Portal
+        </div>
+
+        <div class="auth-card register-card">
+
+            <a href="role-selection.html" class="back-link">
+                ← Back to Role Selection
+            </a>
+
+            <span class="card-kicker">ADMINISTRATOR REGISTRATION</span>
+
+            <h2>Create your account</h2>
+
+            <p class="subtitle">
+                Enter your details to register as an administrator.
+            </p>
+
+            <form id="adminRegisterForm">
+
+                <div class="field">
+                    <label for="admin-name">Full Name</label>
+                    <input type="text"
+                           id="admin-name"
+                           name="fullName"
+                           placeholder="Enter your full name"
+                           required>
+                </div>
+
+                <div class="field">
+                    <label for="admin-id">Administrator ID</label>
+                    <input type="text"
+                           id="admin-id"
+                           name="adminId"
+                           placeholder="Enter administrator ID"
+                           required>
+                </div>
+
+                <div class="field">
+                    <label for="admin-email">Email Address</label>
+                    <input type="email"
+                           id="admin-email"
+                           name="email"
+                           placeholder="Enter your email address"
+                           required>
+                </div>
+
+                <div class="field-grid">
+
+                    <div class="field">
+                        <label for="admin-password">Password</label>
+
+                        <div class="password-field">
+                            <input type="password"
+                                   id="admin-password"
+                                   name="password"
+                                   placeholder="At least 8 characters"
+                                   minlength="8"
+                                   required>
+
+                            <button type="button"
+                                    class="toggle-password"
+                                    data-target="admin-password">
+                                Show
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="admin-confirm-password">
+                            Confirm Password
+                        </label>
+
+                        <div class="password-field">
+                            <input type="password"
+                                   id="admin-confirm-password"
+                                   name="confirmPassword"
+                                   placeholder="Repeat password"
+                                   minlength="8"
+                                   required>
+
+                            <button type="button"
+                                    class="toggle-password"
+                                    data-target="admin-confirm-password">
+                                Show
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="primary-button">
+                    Create Account →
+                </button>
+
+                <div id="adminRegisterMessage"
+                     class="form-message"
+                     role="status"
+                     hidden>
+                </div>
+
+            </form>
+
+            <p class="register-login">
+                Already have an account?
+                <a href="login.html">Sign in here</a>
+            </p>
+
+        </div>
+
+        <p class="form-footer">
+            © 2026 E-Aduan Kolej · CSC584 Storyboard
+        </p>
+
+    </section>
+
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/register.js"></script>
+
+</body>
+</html>

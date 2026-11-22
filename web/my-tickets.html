@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Tickets | E-Aduan Kolej</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/my-tickets.css">
+</head>
+
+<body class="dashboard-page">
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="dashboard-sidebar">
+
+        <a href="student-dashboard.html" class="dashboard-brand">
+
+            <img src="Images/E-Aduan Kolej Icon.png"
+                 alt="E-Aduan Kolej Icon"
+                 class="dashboard-brand-image">
+
+            <div>
+                <strong>E-ADUAN KOLEJ</strong>
+                <small>Maintenance Portal</small>
+            </div>
+
+        </a>
+
+        <div class="sidebar-label">MAIN MENU</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="student-dashboard.html"
+               class="sidebar-link">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="create-ticket.html"
+               class="sidebar-link">
+                <span>✎</span> Submit Complaint
+            </a>
+
+            <a href="my-tickets.html"
+               class="sidebar-link active"
+               aria-current="page">
+                <span>▤</span> My Tickets
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-help">
+                <strong>Need a repair?</strong>
+                <p>
+                    Report damaged hostel facilities
+                    through E-Aduan Kolej.
+                </p>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <!-- TOP BAR -->
+
+         <header class="dashboard-topbar">
+
+            <div class="topbar-title">
+                Student Portal
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="student-profile">
+                    <div class="profile-avatar">S</div>
+
+                    <div class="profile-details">
+                        <strong>Student</strong>
+                        <small>Student Account</small>
+                    </div>
+                </div>
+
+                <a href="login.html" class="topbar-logout-button">
+                    Logout
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <div class="dashboard-content">
+
+            <!-- PAGE HEADER -->
+
+            <section class="my-tickets-header">
+
+                <div>
+
+                    <p class="my-tickets-label">
+                        STUDENT PORTAL
+                    </p>
+
+                    <h1>My Repair Tickets</h1>
+
+                    <p>
+                        View your submitted maintenance complaints
+                        and monitor their current repair status.
+                    </p>
+
+                </div>
+
+                <a href="create-ticket.html"
+                   class="create-ticket-button">
+                    + Create New Ticket
+                </a>
+
+            </section>
+
+
+            <!-- TICKET STATUS SUMMARY -->
+
+            <section class="my-tickets-summary">
+
+                <div class="my-ticket-summary-card">
+
+                    <span>Total Tickets</span>
+                    <h2>6</h2>
+                    <p>All complaints</p>
+
+                </div>
+
+                <div class="my-ticket-summary-card">
+
+                    <span>Pending</span>
+                    <h2 class="my-count-pending">2</h2>
+                    <p>Awaiting repair</p>
+
+                </div>
+
+                <div class="my-ticket-summary-card">
+
+                    <span>In Progress</span>
+                    <h2 class="my-count-progress">1</h2>
+                    <p>Repair underway</p>
+
+                </div>
+
+                <div class="my-ticket-summary-card">
+
+                    <span>Resolved</span>
+                    <h2 class="my-count-resolved">3</h2>
+                    <p>Repair completed</p>
+
+                </div>
+
+            </section>
+
+
+            <!-- TICKET LIST -->
+
+            <section class="my-tickets-panel">
+
+                <div class="my-tickets-panel-header">
+
+                    <div>
+                        <h2>Submitted Complaints</h2>
+                        <p>
+                            Search and filter your repair tickets.
+                        </p>
+                    </div>
+
+                    <span class="my-ticket-count"
+                          id="ticketResultCount">
+                        Showing 6 of 6 tickets
+                    </span>
+
+                </div>
+
+
+                <!-- SEARCH AND FILTER -->
+
+                <div class="my-tickets-filters">
+
+                    <div class="my-ticket-search">
+
+                        <label for="ticketSearch">
+                            Search Tickets
+                        </label>
+
+                        <input
+                            type="search"
+                            id="ticketSearch"
+                            placeholder="Search ticket ID or complaint...">
+
+                    </div>
+
+                    <div class="my-ticket-filter">
+
+                        <label for="statusFilter">
+                            Status
+                        </label>
+
+                        <select id="statusFilter">
+
+                            <option value="All">
+                                All Status
+                            </option>
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="In Progress">
+                                In Progress
+                            </option>
+
+                            <option value="Resolved">
+                                Resolved
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="my-ticket-filter">
+
+                        <label for="categoryFilter">
+                            Category
+                        </label>
+
+                        <select id="categoryFilter">
+
+                            <option value="All">
+                                All Categories
+                            </option>
+
+                            <option value="Electrical">
+                                Electrical
+                            </option>
+
+                            <option value="Plumbing">
+                                Plumbing
+                            </option>
+
+                            <option value="Furniture">
+                                Furniture
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <button type="button"
+                            id="resetFilters"
+                            class="my-ticket-reset">
+                        Reset
+                    </button>
+
+                </div>
+
+
+                <!-- TABLE -->
+
+                <div class="table-container">
+
+                    <table class="ticket-table my-ticket-table">
+
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Complaint</th>
+                                <th>Location</th>
+                                <th>Category</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="ticketTableBody">
+
+                            <!-- TICKET 1 -->
+
+                            <tr data-category="Electrical"
+                                data-status="Pending">
+
+                                <td class="ticket-id">
+                                    #EK-1006
+                                </td>
+
+                                <td>
+                                    <strong class="my-ticket-title">
+                                        Damaged Electrical Socket
+                                    </strong>
+
+                                    <small class="my-ticket-date">
+                                        04 Nov 2026
+                                    </small>
+                                </td>
+
+                                <td>Block A, A-203</td>
+
+                                <td>Electrical</td>
+
+                                <td>
+                                    <span class="priority-high">
+                                        High
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="status-pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="my-ticket-view"
+                                            data-id="EK-1006"
+                                            data-title="Damaged Electrical Socket"
+                                            data-block="Block A"
+                                            data-room="A-203"
+                                            data-category="Electrical"
+                                            data-priority="High"
+                                            data-status="Pending"
+                                            data-department="Electrical Maintenance"
+                                            data-date="04 Nov 2026"
+                                            data-description="The electrical socket near the study table is not working.">
+                                        View Details
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- TICKET 2 -->
+
+                            <tr data-category="Plumbing"
+                                data-status="In Progress">
+
+                                <td class="ticket-id">
+                                    #EK-1005
+                                </td>
+
+                                <td>
+                                    <strong class="my-ticket-title">
+                                        Leaking Bathroom Pipe
+                                    </strong>
+
+                                    <small class="my-ticket-date">
+                                        02 Nov 2026
+                                    </small>
+                                </td>
+
+                                <td>Block B, B-105</td>
+
+                                <td>Plumbing</td>
+
+                                <td>
+                                    <span class="priority-medium">
+                                        Medium
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="status-progress">
+                                        In Progress
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="my-ticket-view"
+                                            data-id="EK-1005"
+                                            data-title="Leaking Bathroom Pipe"
+                                            data-block="Block B"
+                                            data-room="B-105"
+                                            data-category="Plumbing"
+                                            data-priority="Medium"
+                                            data-status="In Progress"
+                                            data-department="Plumbing Maintenance"
+                                            data-date="02 Nov 2026"
+                                            data-description="Water is leaking from the pipe beneath the bathroom sink.">
+                                        View Details
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- TICKET 3 -->
+
+                            <tr data-category="Furniture"
+                                data-status="Pending">
+
+                                <td class="ticket-id">
+                                    #EK-1004
+                                </td>
+
+                                <td>
+                                    <strong class="my-ticket-title">
+                                        Broken Study Chair
+                                    </strong>
+
+                                    <small class="my-ticket-date">
+                                        30 Oct 2026
+                                    </small>
+                                </td>
+
+                                <td>Block A, A-210</td>
+
+                                <td>Furniture</td>
+
+                                <td>
+                                    <span class="priority-low">
+                                        Low
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="status-pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="my-ticket-view"
+                                            data-id="EK-1004"
+                                            data-title="Broken Study Chair"
+                                            data-block="Block A"
+                                            data-room="A-210"
+                                            data-category="Furniture"
+                                            data-priority="Low"
+                                            data-status="Pending"
+                                            data-department="Furniture Maintenance"
+                                            data-date="30 Oct 2026"
+                                            data-description="The study chair has a damaged backrest and needs repair.">
+                                        View Details
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- TICKET 4 -->
+
+                            <tr data-category="Electrical"
+                                data-status="Resolved">
+
+                                <td class="ticket-id">
+                                    #EK-1003
+                                </td>
+
+                                <td>
+                                    <strong class="my-ticket-title">
+                                        Faulty Ceiling Light
+                                    </strong>
+
+                                    <small class="my-ticket-date">
+                                        27 Oct 2026
+                                    </small>
+                                </td>
+
+                                <td>Block C, C-301</td>
+
+                                <td>Electrical</td>
+
+                                <td>
+                                    <span class="priority-high">
+                                        High
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="status-resolved">
+                                        Resolved
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="my-ticket-view"
+                                            data-id="EK-1003"
+                                            data-title="Faulty Ceiling Light"
+                                            data-block="Block C"
+                                            data-room="C-301"
+                                            data-category="Electrical"
+                                            data-priority="High"
+                                            data-status="Resolved"
+                                            data-department="Electrical Maintenance"
+                                            data-date="27 Oct 2026"
+                                            data-description="The room ceiling light was flickering and has been repaired.">
+                                        View Details
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- TICKET 5 -->
+
+                            <tr data-category="Plumbing"
+                                data-status="Resolved">
+
+                                <td class="ticket-id">
+                                    #EK-1002
+                                </td>
+
+                                <td>
+                                    <strong class="my-ticket-title">
+                                        Blocked Wash Basin
+                                    </strong>
+
+                                    <small class="my-ticket-date">
+                                        22 Oct 2026
+                                    </small>
+                                </td>
+
+                                <td>Block B, B-108</td>
+
+                                <td>Plumbing</td>
+
+                                <td>
+                                    <span class="priority-medium">
+                                        Medium
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="status-resolved">
+                                        Resolved
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="my-ticket-view"
+                                            data-id="EK-1002"
+                                            data-title="Blocked Wash Basin"
+                                            data-block="Block B"
+                                            data-room="B-108"
+                                            data-category="Plumbing"
+                                            data-priority="Medium"
+                                            data-status="Resolved"
+                                            data-department="Plumbing Maintenance"
+                                            data-date="22 Oct 2026"
+                                            data-description="The bathroom wash basin was clogged and has been cleared.">
+                                        View Details
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- TICKET 6 -->
+
+                            <tr data-category="Furniture"
+                                data-status="Resolved">
+
+                                <td class="ticket-id">
+                                    #EK-1001
+                                </td>
+
+                                <td>
+                                    <strong class="my-ticket-title">
+                                        Damaged Wardrobe Door
+                                    </strong>
+
+                                    <small class="my-ticket-date">
+                                        18 Oct 2026
+                                    </small>
+                                </td>
+
+                                <td>Block C, C-204</td>
+
+                                <td>Furniture</td>
+
+                                <td>
+                                    <span class="priority-low">
+                                        Low
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="status-resolved">
+                                        Resolved
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="my-ticket-view"
+                                            data-id="EK-1001"
+                                            data-title="Damaged Wardrobe Door"
+                                            data-block="Block C"
+                                            data-room="C-204"
+                                            data-category="Furniture"
+                                            data-priority="Low"
+                                            data-status="Resolved"
+                                            data-department="Furniture Maintenance"
+                                            data-date="18 Oct 2026"
+                                            data-description="The wardrobe door hinge was loose and has been repaired.">
+                                        View Details
+                                    </button>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- EMPTY STATE -->
+
+                <div id="emptyTickets"
+                     class="my-tickets-empty"
+                     hidden>
+
+                    <h3>No Tickets Found</h3>
+
+                    <p>
+                        No repair tickets match your
+                        search or selected filters.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- STATUS GUIDE -->
+
+            <section class="my-tickets-guide">
+
+                <h2>Understanding Ticket Status</h2>
+
+                <div class="my-status-grid">
+
+                    <div>
+                        <span class="status-pending">
+                            Pending
+                        </span>
+
+                        <p>
+                            The ticket has been submitted
+                            and is waiting for repair action.
+                        </p>
+                    </div>
+
+                    <div>
+                        <span class="status-progress">
+                            In Progress
+                        </span>
+
+                        <p>
+                            A technician is currently
+                            handling the repair request.
+                        </p>
+                    </div>
+
+                    <div>
+                        <span class="status-resolved">
+                            Resolved
+                        </span>
+
+                        <p>
+                            The maintenance issue
+                            has been repaired.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <footer class="dashboard-footer">
+                © 2026 E-Aduan Kolej |
+                Hostel Maintenance & Repair
+            </footer>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- TICKET DETAILS POPUP -->
+
+<dialog id="ticketDetailsDialog"
+        class="ticket-details-dialog"
+        aria-labelledby="detailsHeading">
+
+    <div class="ticket-dialog-header">
+
+        <div>
+            <p>TICKET INFORMATION</p>
+            <h2 id="detailsHeading">Repair Ticket Details</h2>
+        </div>
+
+        <button type="button"
+                id="closeTicketDetails"
+                class="ticket-dialog-close"
+                aria-label="Close ticket details">
+            &times;
+        </button>
+
+    </div>
+
+    <div class="ticket-dialog-content">
+
+        <div class="ticket-dialog-title">
+
+            <div>
+                <small id="detailId"></small>
+                <h3 id="detailTitle"></h3>
+            </div>
+
+            <span id="detailStatus"></span>
+
+        </div>
+
+        <div class="ticket-detail-grid">
+
+            <div>
+                <label>Hostel Block</label>
+                <p id="detailBlock"></p>
+            </div>
+
+            <div>
+                <label>Room Number</label>
+                <p id="detailRoom"></p>
+            </div>
+
+            <div>
+                <label>Damage Category</label>
+                <p id="detailCategory"></p>
+            </div>
+
+            <div>
+                <label>Priority</label>
+                <p id="detailPriority"></p>
+            </div>
+
+            <div>
+                <label>Maintenance Department</label>
+                <p id="detailDepartment"></p>
+            </div>
+
+            <div>
+                <label>Submission Date</label>
+                <p id="detailDate"></p>
+            </div>
+
+        </div>
+
+        <div class="ticket-detail-description">
+
+            <label>Problem Description</label>
+
+            <p id="detailDescription"></p>
+
+        </div>
+
+        <p class="ticket-dialog-note">
+            Storyboard preview — ticket information
+            is sample data.
+        </p>
+
+        <button type="button"
+                id="doneTicketDetails"
+                class="ticket-dialog-done">
+            Close
+        </button>
+
+    </div>
+
+</dialog>
+
+<script src="js/my-tickets.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Technician Dashboard | E-Aduan Kolej</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/technician-dashboard.css">
+</head>
+
+<body class="dashboard-page">
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="dashboard-sidebar">
+
+        <a href="technician-dashboard.html"
+           class="dashboard-brand">
+
+            <img src="Images/E-Aduan Kolej Icon.png"
+                 alt="E-Aduan Kolej Icon"
+                 class="dashboard-brand-image">
+
+            <div>
+                <strong>E-ADUAN KOLEJ</strong>
+                <small>Maintenance Portal</small>
+            </div>
+
+        </a>
+
+        <div class="sidebar-label">TECHNICIAN MENU</div>
+
+        <nav class="sidebar-menu">
+
+            <a href="technician-dashboard.html"
+               class="sidebar-link active">
+                <span>▦</span> Dashboard
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-help">
+                <strong>Maintenance Team</strong>
+                <p>
+                    Review assigned complaints and
+                    keep repair statuses updated.
+                </p>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <!-- TOP BAR -->
+        <header class="dashboard-topbar">
+
+            <div class="topbar-title">
+                Technician Portal
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="student-profile">
+                    <div class="profile-avatar">T</div>
+
+                    <div class="profile-details">
+                        <strong> Electrical Technician</strong>
+                        <small>Electrical Maintenance</small>
+                    </div>
+                </div>
+
+                <a href="login.html" class="topbar-logout-button">
+                    Logout
+                </a>
+
+            </div>
+
+        </header>
+        
+        <div class="dashboard-content">
+
+            <!-- WELCOME SECTION -->
+
+            <section class="technician-welcome">
+
+                <div>
+                    <p class="technician-label">
+                        TECHNICIAN DASHBOARD
+                    </p>
+
+                    <h1>Welcome back, Technician!</h1>
+
+                    <p>
+                        Manage your assigned maintenance
+                        requests and update repair progress.
+                    </p>
+                </div>
+
+                <div class="technician-department">
+                    <span>ASSIGNED DEPARTMENT</span>
+                    <strong>⚡ Electrical Maintenance</strong>
+                </div>
+
+            </section>
+
+
+            <!-- SUMMARY CARDS -->
+
+            <section class="dashboard-statistics">
+
+                <div class="stat-card">
+
+                    <div class="stat-heading">
+                        <span>Total Tickets</span>
+                        <span class="stat-icon purple-icon">▤</span>
+                    </div>
+
+                    <h2 id="techTotal">4</h2>
+                    <p>Assigned repair tickets</p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-heading">
+                        <span>Pending</span>
+                        <span class="stat-icon orange-icon">◷</span>
+                    </div>
+
+                    <h2 id="techPending">2</h2>
+                    <p>Waiting for repair action</p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-heading">
+                        <span>In Progress</span>
+                        <span class="stat-icon blue-icon">⚒</span>
+                    </div>
+
+                    <h2 id="techProgress">1</h2>
+                    <p>Currently being repaired</p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-heading">
+                        <span>Resolved</span>
+                        <span class="stat-icon green-icon">✓</span>
+                    </div>
+
+                    <h2 id="techResolved">1</h2>
+                    <p>Successfully completed</p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ASSIGNED REPAIR TICKETS -->
+
+            <section class="dashboard-section"
+                     id="assigned-tickets">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Assigned Repair Tickets</h2>
+
+                        <p>
+                            View and manage maintenance tickets
+                            routed to your department.
+                        </p>
+                    </div>
+
+                    <span class="technician-ticket-count"
+                          id="techResultCount">
+                        Showing 4 of 4 tickets
+                    </span>
+
+                </div>
+
+
+                <!-- SEARCH AND FILTER -->
+
+                <div class="technician-filters">
+
+                    <div>
+                        <label for="techSearch">
+                            Search Tickets
+                        </label>
+
+                        <input
+                            type="search"
+                            id="techSearch"
+                            placeholder="Search ID, complaint or location">
+                    </div>
+
+                    <div>
+                        <label for="techStatusFilter">
+                            Repair Status
+                        </label>
+
+                        <select id="techStatusFilter">
+
+                            <option value="All">All Status</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+
+                        </select>
+                    </div>
+
+                    <button type="button"
+                            id="techReset"
+                            class="technician-reset">
+                        Reset
+                    </button>
+
+                </div>
+
+
+                <!-- TICKETS TABLE -->
+
+                <div class="table-container">
+
+                    <table class="ticket-table technician-table">
+
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Complaint</th>
+                                <th>Student</th>
+                                <th>Location</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="technicianTicketBody">
+
+                            <!-- TICKET 1 -->
+
+                            <tr data-id="EK-1006"
+                                data-title="Damaged Electrical Socket"
+                                data-student="Student A"
+                                data-location="Block A, A-203"
+                                data-priority="High"
+                                data-status="Pending"
+                                data-description="The electrical socket near the study table is not working.">
+
+                                <td class="ticket-id">#EK-1006</td>
+
+                                <td>
+                                    <strong class="tech-ticket-title">
+                                        Damaged Electrical Socket
+                                    </strong>
+                                    <small>04 Nov 2026</small>
+                                </td>
+
+                                <td>Student A</td>
+                                <td>Block A, A-203</td>
+
+                                <td>
+                                    <span class="priority-high">High</span>
+                                </td>
+
+                                <td>
+                                    <span class="status-pending tech-status">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="tech-manage-button">
+                                        Manage
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- TICKET 2 -->
+
+                            <tr data-id="EK-1008"
+                                data-title="Faulty Corridor Lighting"
+                                data-student="Student B"
+                                data-location="Block B, Level 2"
+                                data-priority="High"
+                                data-status="Pending"
+                                data-description="Several corridor lights are not functioning on the second floor.">
+
+                                <td class="ticket-id">#EK-1008</td>
+
+                                <td>
+                                    <strong class="tech-ticket-title">
+                                        Faulty Corridor Lighting
+                                    </strong>
+                                    <small>03 Nov 2026</small>
+                                </td>
+
+                                <td>Student B</td>
+                                <td>Block B, Level 2</td>
+
+                                <td>
+                                    <span class="priority-high">High</span>
+                                </td>
+
+                                <td>
+                                    <span class="status-pending tech-status">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="tech-manage-button">
+                                        Manage
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- TICKET 3 -->
+
+                            <tr data-id="EK-1007"
+                                data-title="Ceiling Fan Not Working"
+                                data-student="Student C"
+                                data-location="Block C, C-204"
+                                data-priority="High"
+                                data-status="In Progress"
+                                data-description="The ceiling fan does not rotate when switched on.">
+
+                                <td class="ticket-id">#EK-1007</td>
+
+                                <td>
+                                    <strong class="tech-ticket-title">
+                                        Ceiling Fan Not Working
+                                    </strong>
+                                    <small>01 Nov 2026</small>
+                                </td>
+
+                                <td>Student C</td>
+                                <td>Block C, C-204</td>
+
+                                <td>
+                                    <span class="priority-high">High</span>
+                                </td>
+
+                                <td>
+                                    <span class="status-progress tech-status">
+                                        In Progress
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="tech-manage-button">
+                                        Manage
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <!-- TICKET 4 -->
+
+                            <tr data-id="EK-1003"
+                                data-title="Faulty Ceiling Light"
+                                data-student="Student A"
+                                data-location="Block C, C-301"
+                                data-priority="High"
+                                data-status="Resolved"
+                                data-description="The ceiling light was flickering and has been repaired.">
+
+                                <td class="ticket-id">#EK-1003</td>
+
+                                <td>
+                                    <strong class="tech-ticket-title">
+                                        Faulty Ceiling Light
+                                    </strong>
+                                    <small>27 Oct 2026</small>
+                                </td>
+
+                                <td>Student A</td>
+                                <td>Block C, C-301</td>
+
+                                <td>
+                                    <span class="priority-high">High</span>
+                                </td>
+
+                                <td>
+                                    <span class="status-resolved tech-status">
+                                        Resolved
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <button type="button"
+                                            class="tech-manage-button">
+                                        View Details
+                                    </button>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- EMPTY RESULTS -->
+
+                <div id="techEmpty"
+                     class="technician-empty"
+                     hidden>
+
+                    <h3>No Tickets Found</h3>
+
+                    <p>
+                        No maintenance tickets match
+                        your selected filters.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- INFORMATION SECTION -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Repair Status Workflow</h2>
+
+                        <p>
+                            Keep ticket statuses updated
+                            as repair work progresses.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="repair-steps">
+
+                    <div class="repair-step">
+
+                        <span class="repair-step-number">1</span>
+
+                        <div>
+                            <h3>Pending</h3>
+
+                            <p>
+                                Review newly assigned tickets
+                                and prepare for maintenance work.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="repair-step">
+
+                        <span class="repair-step-number">2</span>
+
+                        <div>
+                            <h3>In Progress</h3>
+
+                            <p>
+                                Update the status when
+                                repair work begins.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="repair-step">
+
+                        <span class="repair-step-number">3</span>
+
+                        <div>
+                            <h3>Resolved</h3>
+
+                            <p>
+                                Mark the complaint as resolved
+                                after completing the repair.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <footer class="dashboard-footer">
+                © 2026 E-Aduan Kolej |
+                Hostel Maintenance & Repair
+            </footer>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- TICKET MANAGEMENT POPUP -->
+
+<dialog id="techDialog" class="technician-dialog">
+
+    <div class="technician-dialog-header">
+
+        <div>
+            <small>MAINTENANCE TICKET</small>
+            <h2 id="techDialogTitle">Ticket Details</h2>
+        </div>
+
+        <button type="button"
+                id="closeTechDialog"
+                class="technician-dialog-close">
+            &times;
+        </button>
+
+    </div>
+
+    <form id="techUpdateForm">
+
+        <div class="technician-dialog-body">
+
+            <div class="technician-detail-grid">
+
+                <div>
+                    <label>Ticket ID</label>
+                    <p id="techDetailId"></p>
+                </div>
+
+                <div>
+                    <label>Student</label>
+                    <p id="techDetailStudent"></p>
+                </div>
+
+                <div>
+                    <label>Hostel Location</label>
+                    <p id="techDetailLocation"></p>
+                </div>
+
+                <div>
+                    <label>Priority</label>
+                    <p id="techDetailPriority"></p>
+                </div>
+
+            </div>
+
+            <div class="technician-description">
+
+                <label>Problem Description</label>
+
+                <p id="techDetailDescription"></p>
+
+            </div>
+
+            <div class="technician-update-field">
+
+                <label for="techNewStatus">
+                    Update Repair Status
+                </label>
+
+                <select id="techNewStatus" required>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
+
+                <small id="techStatusNote"></small>
+
+            </div>
+
+            <p id="techUpdateMessage"
+               class="technician-update-message"
+               role="status"
+               hidden></p>
+
+            <div class="technician-dialog-actions">
+
+                <button type="button"
+                        id="cancelTechUpdate"
+                        class="technician-cancel">
+                    Close
+                </button>
+
+                <button type="submit"
+                        id="saveTechStatus"
+                        class="technician-save">
+                    Save Status
+                </button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</dialog>
+
+<script src="js/technician-dashboard.js"></script>
+
+</body>
+</html>

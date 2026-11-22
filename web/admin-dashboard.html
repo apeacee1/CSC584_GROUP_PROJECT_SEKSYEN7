@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | E-Aduan Kolej</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+</head>
+
+<body class="dashboard-page">
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="dashboard-sidebar">
+
+        <a href="admin-dashboard.html"
+           class="dashboard-brand">
+
+            <img src="Images/E-Aduan Kolej Icon.png"
+                 alt="E-Aduan Kolej Icon"
+                 class="dashboard-brand-image">
+
+            <div>
+                <strong>E-ADUAN KOLEJ</strong>
+                <small>Maintenance Portal</small>
+            </div>
+        </a>
+
+        <div class="sidebar-label">
+            ADMINISTRATION
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="admin-dashboard.html"
+               class="sidebar-link active">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="manage-tickets.html"
+               class="sidebar-link">
+                <span>▤</span> Manage Tickets
+            </a>
+
+            <a href="manage-technicians.html"
+               class="sidebar-link">
+                <span>⚒</span> Manage Technicians
+            </a>
+
+            <a href="reports-statistics.html"
+               class="sidebar-link">
+                <span>▥</span> Reports & Statistics
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-help">
+                <strong>Admin Control Panel</strong>
+                <p>
+                    Monitor complaints, manage technicians
+                    and oversee hostel maintenance.
+                </p>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+        <!-- TOP BAR -->
+
+        <header class="dashboard-topbar">
+
+            <div class="topbar-title">
+                Administrator Portal
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="student-profile">
+                    <div class="profile-avatar">A</div>
+
+                    <div class="profile-details">
+                        <strong>Administrator</strong>
+                        <small>System Administrator</small>
+                    </div>
+                </div>
+
+                <a href="login.html" class="topbar-logout-button">
+                    Logout
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <div class="dashboard-content">
+
+            <!-- WELCOME SECTION -->
+
+            <section class="admin-welcome">
+
+                <div>
+                    <p class="admin-label">
+                        ADMIN DASHBOARD
+                    </p>
+
+                    <h1>Maintenance Overview</h1>
+
+                    <p>
+                        Monitor hostel repair complaints,
+                        technician workload and overall
+                        maintenance performance.
+                    </p>
+                </div>
+
+                <a href="manage-tickets.html"
+                   class="admin-primary-button">
+                    Manage All Tickets →
+                </a>
+
+            </section>
+
+
+            <!-- SUMMARY CARDS -->
+
+            <section class="admin-statistics">
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-top">
+                        <span>Total Tickets</span>
+                        <span class="admin-stat-icon purple-icon">
+                            ▤
+                        </span>
+                    </div>
+
+                    <h2 id="adminTotal">0</h2>
+                    <p>All maintenance complaints</p>
+
+                </div>
+
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-top">
+                        <span>Pending</span>
+                        <span class="admin-stat-icon orange-icon">
+                            ◷
+                        </span>
+                    </div>
+
+                    <h2 id="adminPending">0</h2>
+                    <p>Awaiting repair action</p>
+
+                </div>
+
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-top">
+                        <span>In Progress</span>
+                        <span class="admin-stat-icon blue-icon">
+                            ⚒
+                        </span>
+                    </div>
+
+                    <h2 id="adminProgress">0</h2>
+                    <p>Repairs being handled</p>
+
+                </div>
+
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-top">
+                        <span>Resolved</span>
+                        <span class="admin-stat-icon green-icon">
+                            ✓
+                        </span>
+                    </div>
+
+                    <h2 id="adminResolved">0</h2>
+                    <p>Completed maintenance</p>
+
+                </div>
+
+
+                <div class="admin-stat-card">
+
+                    <div class="admin-stat-top">
+                        <span>Avg. Resolution</span>
+                        <span class="admin-stat-icon purple-icon">
+                            ◷
+                        </span>
+                    </div>
+
+                    <h2 id="adminAverage">—</h2>
+                    <p>Based on resolved tickets</p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ANALYTICS -->
+
+            <section class="admin-analytics">
+
+                <!-- TICKET VOLUME CHART -->
+
+                <div class="admin-panel">
+
+                    <div class="admin-panel-heading">
+
+                        <h2>Ticket Volume by Category</h2>
+
+                        <p>
+                            Number of submitted complaints
+                            for each damage category.
+                        </p>
+
+                    </div>
+
+                    <div id="adminCategoryChart"
+                         class="admin-chart-rows">
+                    </div>
+
+                </div>
+
+
+                <!-- RESOLUTION TIME CHART -->
+
+                <div class="admin-panel">
+
+                    <div class="admin-panel-heading">
+
+                        <h2>Average Resolution Time</h2>
+
+                        <p>
+                            Average repair duration by hostel
+                            block, based on resolved tickets.
+                        </p>
+
+                    </div>
+
+                    <div id="adminBlockChart"
+                         class="admin-chart-rows">
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- TECHNICIAN PERFORMANCE -->
+
+            <section class="admin-panel admin-performance">
+
+                <div class="admin-section-header">
+
+                    <div>
+                        <h2>Technician Performance</h2>
+
+                        <p>
+                            Monitor repair assignments and
+                            completed tickets by technician.
+                        </p>
+                    </div>
+
+                    <a href="manage-technicians.html"
+                       class="admin-text-link">
+                        Manage Technicians →
+                    </a>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table class="ticket-table admin-technician-table">
+
+                        <thead>
+                            <tr>
+                                <th>Technician</th>
+                                <th>Department</th>
+                                <th>Assigned</th>
+                                <th>Resolved</th>
+                                <th>Completion Rate</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="adminTechnicianTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="admin-table-note">
+                    Completion rate = Resolved tickets
+                    ÷ Assigned tickets × 100.
+                </p>
+
+            </section>
+
+
+            <!-- ALL REPAIR TICKETS -->
+
+            <section class="admin-panel"
+                     id="admin-tickets">
+
+                <div class="admin-section-header">
+
+                    <div>
+                        <h2>All Repair Tickets</h2>
+
+                        <p>
+                            Monitor complaints submitted
+                            from all hostel blocks.
+                        </p>
+                    </div>
+
+                    <span class="admin-result-count"
+                          id="adminResultCount">
+                        Showing 0 tickets
+                    </span>
+
+                </div>
+
+
+                <!-- FILTERS -->
+
+                <div class="admin-filters">
+
+                    <div class="admin-search-field">
+
+                        <label for="adminSearch">
+                            Search Tickets
+                        </label>
+
+                        <input
+                            type="search"
+                            id="adminSearch"
+                            placeholder="Search ID, complaint or block">
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="adminStatusFilter">
+                            Status
+                        </label>
+
+                        <select id="adminStatusFilter">
+
+                            <option value="All">All Status</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">
+                                In Progress
+                            </option>
+                            <option value="Resolved">Resolved</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="adminCategoryFilter">
+                            Category
+                        </label>
+
+                        <select id="adminCategoryFilter">
+
+                            <option value="All">
+                                All Categories
+                            </option>
+
+                            <option value="Electrical">
+                                Electrical
+                            </option>
+
+                            <option value="Plumbing">
+                                Plumbing
+                            </option>
+
+                            <option value="Furniture">
+                                Furniture
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button type="button"
+                            id="adminResetFilters"
+                            class="admin-reset-button">
+                        Reset
+                    </button>
+
+                </div>
+
+
+                <!-- TABLE -->
+
+                <div class="table-container">
+
+                    <table class="ticket-table admin-tickets-table">
+
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Complaint</th>
+                                <th>Hostel Location</th>
+                                <th>Category</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="adminTicketTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div id="adminEmpty"
+                     class="admin-empty"
+                     hidden>
+
+                    <h3>No Tickets Found</h3>
+
+                    <p>
+                        Try changing the search or
+                        selected filters.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+
+            <footer class="dashboard-footer">
+                © 2026 E-Aduan Kolej |
+                Hostel Maintenance & Repair
+            </footer>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- TICKET DETAILS POPUP -->
+
+<dialog id="adminTicketDialog"
+        class="admin-dialog"
+        aria-labelledby="adminDialogTitle">
+
+    <div class="admin-dialog-header">
+
+        <div>
+            <small>MAINTENANCE COMPLAINT</small>
+            <h2 id="adminDialogTitle">Ticket Details</h2>
+        </div>
+
+        <button type="button"
+                id="adminCloseDialog"
+                class="admin-dialog-close"
+                aria-label="Close ticket details">
+            &times;
+        </button>
+
+    </div>
+
+
+    <div class="admin-dialog-body">
+
+        <div class="admin-dialog-status">
+
+            <strong id="adminDetailId"></strong>
+
+            <span id="adminDetailStatus"></span>
+
+        </div>
+
+        <div class="admin-detail-grid">
+
+            <div>
+                <label>Submitted By</label>
+                <p id="adminDetailStudent"></p>
+            </div>
+
+            <div>
+                <label>Hostel Location</label>
+                <p id="adminDetailLocation"></p>
+            </div>
+
+            <div>
+                <label>Category</label>
+                <p id="adminDetailCategory"></p>
+            </div>
+
+            <div>
+                <label>Priority</label>
+                <p id="adminDetailPriority"></p>
+            </div>
+
+            <div>
+                <label>Department</label>
+                <p id="adminDetailDepartment"></p>
+            </div>
+
+            <div>
+                <label>Assigned Technician</label>
+                <p id="adminDetailTechnician"></p>
+            </div>
+
+            <div>
+                <label>Submitted On</label>
+                <p id="adminDetailCreated"></p>
+            </div>
+
+            <div>
+                <label>Resolved On</label>
+                <p id="adminDetailResolved"></p>
+            </div>
+
+        </div>
+
+        <div class="admin-detail-description">
+
+            <label>Problem Description</label>
+            <p id="adminDetailDescription"></p>
+
+        </div>
+
+        <p class="admin-table-note">
+            Storyboard preview: Sample ticket information only.
+        </p>
+
+        <button type="button"
+                id="adminDoneDialog"
+                class="admin-primary-button admin-dialog-done">
+            Close
+        </button>
+
+    </div>
+
+</dialog>
+
+<script src="js/admin-dashboard.js"></script>
+
+</body>
+</html>

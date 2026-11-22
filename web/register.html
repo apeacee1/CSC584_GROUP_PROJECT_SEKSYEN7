@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Registration | E-Aduan Kolej</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="auth-shell">
+
+    <section class="welcome-panel">
+
+        <a class="brand" href="login.html">
+            <img src="Images/E-Aduan Kolej Icon.png" alt="E-Aduan Kolej Icon" class="brand-icon-image">
+            <span class="brand-text">
+                E-ADUAN <strong>KOLEJ</strong>
+                <small>Hostel Maintenance & Repair</small>
+            </span>
+        </a>
+
+        <div class="welcome-content registration-welcome">
+
+            <div class="eyebrow">
+                JOIN THE HELPDESK
+            </div>
+
+            <h1>
+                One report can<br>
+                <span>make a difference.</span>
+            </h1>
+
+            <p>
+                Create your student account to submit
+                repair requests and stay informed about
+                the status of your reports.
+            </p>
+
+            <div class="steps-preview">
+
+                <div class="step-preview">
+                    <span>01</span>
+                    <div>
+                        <strong>Create an account</strong>
+                        <small>
+                            Register with your student details
+                        </small>
+                    </div>
+                </div>
+
+                <div class="step-preview">
+                    <span>02</span>
+                    <div>
+                        <strong>Submit a complaint</strong>
+                        <small>
+                            Describe the hostel maintenance problem
+                        </small>
+                    </div>
+                </div>
+
+                <div class="step-preview">
+                    <span>03</span>
+                    <div>
+                        <strong>Track repair progress</strong>
+                        <small>
+                            Check updates in one convenient place
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="welcome-footer">
+            One platform for students, technicians
+            and administrators.
+        </p>
+
+    </section>
+
+    <section class="form-panel registration-panel">
+
+        <div class="form-topline">
+            Maintenance Helpdesk Portal
+        </div>
+
+        <div class="auth-card register-card">
+
+            <a href="role-selection.html" class="back-link">
+                ← Back to Role Selection
+            </a>
+
+            <span class="card-kicker">
+                STUDENT REGISTRATION
+            </span>
+
+            <h2>Create your account</h2>
+
+            <p class="subtitle">
+                Fill in your details to start reporting
+                maintenance issues.
+            </p>
+
+            <form id="registerForm">
+
+                <div class="field">
+                    <label for="full-name">Full Name</label>
+                    <input
+                        type="text"
+                        id="full-name"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        required>
+                </div>
+
+                <div class="field-grid">
+
+                    <div class="field">
+                        <label for="student-id">Student ID</label>
+                        <input
+                            type="text"
+                            id="student-id"
+                            name="studentId"
+                            placeholder="Enter student ID"
+                            required>
+                    </div>
+
+                    <div class="field">
+                        <label for="block">Hostel Block</label>
+                        <input
+                            type="text"
+                            id="block"
+                            name="block"
+                            placeholder="e.g. Perindu 3"
+                            required>
+                    </div>
+
+                </div>
+
+                <div class="field">
+                    <label for="register-email">
+                        Email Address
+                    </label>
+                    <input
+                        type="email"
+                        id="register-email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        required>
+                </div>
+
+                <div class="field-grid">
+
+                    <div class="field">
+                        <label for="register-password">
+                            Password
+                        </label>
+
+                        <div class="password-field">
+                            <input
+                                type="password"
+                                id="register-password"
+                                name="password"
+                                placeholder="At least 8 characters"
+                                minlength="8"
+                                required>
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                data-target="register-password">
+                                Show
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="confirm-password">
+                            Confirm Password
+                        </label>
+
+                        <div class="password-field">
+                            <input
+                                type="password"
+                                id="confirm-password"
+                                name="confirmPassword"
+                                placeholder="Repeat password"
+                                minlength="8"
+                                required>
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                data-target="confirm-password">
+                                Show
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="primary-button">
+                    Create Account →
+                </button>
+
+                <div
+                    id="registerMessage"
+                    class="form-message"
+                    role="status"
+                    hidden>
+                </div>
+
+            </form>
+
+            <p class="register-login">
+                Already have an account?
+                <a href="login.html">Sign in here</a>
+            </p>
+
+        </div>
+
+        <p class="form-footer">
+            © 2026 E-Aduan Kolej · CSC584 Storyboard
+        </p>
+
+    </section>
+
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/register.js"></script>
+
+</body>
+</html>
